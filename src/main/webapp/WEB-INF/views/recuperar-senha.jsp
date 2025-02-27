@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 
-<!-- tag responsíva -->
+<!-- tag responsÃ­va -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Projeto Contas</title>
 
-<!-- Referência de folhas de estils CSS do Bootstrap -->
+<!-- ReferÃªncia de folhas de estils CSS do Bootstrap -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -46,7 +46,7 @@
 		</div>
 	</div>
 
-	<!-- 	Referência do arquivo JS do Bootstrap -->
+	<!-- 	ReferÃªncia do arquivo JS do Bootstrap -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -1,19 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 
-<!-- tag responsíva -->
+<!-- tag responsÃ­va -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Projeto Contas</title>
 
-<!-- Referência de folhas de estils CSS do Bootstrap -->
+<!-- ReferÃªncia de folhas de estils CSS do Bootstrap -->
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+
+<!-- Folha de estilos CSS local -->
+<link href="resources/style.css" rel="stylesheet" />
 
 </head>
 <body class="bg-secondary">
@@ -24,34 +27,42 @@
 					<div class="text-center">
 						<img src="https://mobile.tpkeosee.com/usuario.png" />
 						<hr />
-						<h2>Criar conta de usuário</h2>
+						<h2>Criar conta de usuÃ¡rio</h2>
 						<p>Preencha os seus dados para criar uma conta:</p>
 					</div>
-					
+
 					<div class="text-center text-success">
-						<strong>${mensagem_sucesso}</strong>
+						<h3>${mensagem_sucesso}</h3>
 					</div>
 					<div class="text-center text-danger">
-						<strong>${mensagem_erro}</strong>
+						<h3>${mensagem_erro}</h3>
 					</div>
-					
-					<form method="post" action="criar-usuario-post">
+
+					<form id="formCriarUsuario" method="post"
+						action="criar-usuario-post">
 
 						<div class="mb-2">
-							<label>Nome de usuário:</label> <input type="text"
-								class="form-control" name="nome"
+							<label>Nome de usuÃ¡rio:</label> <input type="text"
+								class="form-control" id="nome" name="nome"
 								placeholder="Digite seu nome aqui." />
 						</div>
 						<div class="mb-2">
 							<label>Email de acesso:</label> <input type="text"
-								class="form-control" name="email"
+								class="form-control" id="email" name="email"
 								placeholder="Digite seu email aqui." />
 						</div>
 						<div class="mb-2">
 							<label>Senha de acesso:</label> <input type="password"
-								class="form-control" name="senha"
+								class="form-control" id="senha" name="senha"
 								placeholder="Digite sua senha aqui." />
 						</div>
+
+						<div class="mb-2">
+							<label>Confirme a sua senha:</label> <input type="password"
+								class="form-control" id="senhaConfirmacao"
+								name="senhaConfirmacao" placeholder="Confirme sua senha aqui." />
+						</div>
+
 						<div class="mb-2 d-grid">
 							<input type="submit" class="btn btn-primary"
 								value="Realizar Cadastro" />
@@ -66,9 +77,23 @@
 		</div>
 	</div>
 
-	<!-- 	Referência do arquivo JS do Bootstrap -->
+	<!-- Bootstrap JS -->
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- JQuery JS -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+	<!-- JQuery Validate JS -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_pt_BR.min.js"></script>
+
+	<!-- Arquivo JS local -->
+	<script src="resources/js/criar-usuario.js"></script>
 
 </body>
 </html>

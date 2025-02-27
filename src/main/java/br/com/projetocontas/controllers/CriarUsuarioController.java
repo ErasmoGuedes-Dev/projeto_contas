@@ -1,5 +1,6 @@
 package br.com.projetocontas.controllers;
 
+import javax.crypto.EncryptedPrivateKeyInfo;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetocontas.entities.Usuario;
+import br.com.projetocontas.helpers.EncryptHelper;
 import br.com.projetocontas.repositories.UsuarioRepository;
 
 @Controller 
@@ -29,21 +31,26 @@ public class CriarUsuarioController {
 			Usuario usuario = new Usuario();
 			usuario.setNome(request.getParameter("nome"));
 			usuario.setEmail(request.getParameter("email"));
-			usuario.setSenha(request.getParameter("senha"));
+			usuario.setSenha(EncryptHelper.encryptSHA1(request.getParameter("senha")));
 			
 			//gravar no banco de dados
 			UsuarioRepository usuarioRepository = new UsuarioRepository();
-			usuarioRepository.create(usuario);
+			//verificando se o usuário não existe no banco de dados
+			if(usuarioRepository.find(usuario.getEmail()) == null) {
 			
-			//enviando mensagem de sucesso para a página
-			modelAndView.addObject("mensagem_sucesso", "Usuário cadastrado com sucesso!");
+				//cadastrar no banco de dados
+				usuarioRepository.create(usuario);
+				
+				//enviando mensagem de sucesso para a página
+				modelAndView.addObject("mensagem_sucesso", "Usuário cadastrado com sucesso!");
+			} else {
+				throw new Exception("O email informado já está cadastrado para outro usuário.");
+			}
 			
 		} catch (Exception e) {
 			//enviando mensagem de erro para a página 
 			modelAndView.addObject("mensagem_erro", e.getMessage());
-
 		}
-		
 	return modelAndView; 
 	} 
 	
