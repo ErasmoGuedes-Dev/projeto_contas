@@ -1,7 +1,7 @@
-//executando rotinas do jquery quando a página for aberta 
+//executando rotinas do jquery quando a página for aberta
 $(document).ready(function() {
 
-	//validação do formulário 
+	//validação do formulário
 	$("#formAutenticar").validate({
 		rules: {
 			"email": {
