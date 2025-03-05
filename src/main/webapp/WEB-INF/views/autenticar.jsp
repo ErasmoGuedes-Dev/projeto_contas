@@ -93,7 +93,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_pt_BR.min.js"></script>
 	
 	<!-- Arquivo JS local -->
-	<script src="resources/js/autenticar.js"></script>
+	<script src="resources/js/autenticar.js" charset="UTF-8"></script>
 
 </body>
 </html>
